@@ -1,0 +1,33 @@
+.test {
+    background: linear-gradient(
+        to bottom,
+        rgb(150, 161, 160),
+        rgb(20, 189, 208)
+      );
+    margin: auto;
+    display: flex;
+    margin-top: 80px;
+    padding-top: 50px;
+    height: 500px;
+    border-radius: 20px;
+    width: 450px;
+}
+
+.test1 {
+    background: linear-gradient(
+    to bottom,
+    rgb(20, 212, 179),
+    rgb(20, 189, 208)
+  );
+    margin: auto;
+    display: flex;
+    margin-top: 80px;
+    padding-top: 50px;
+    height: 500px;
+    border-radius: 20px;
+    width: 450px;
+}
+
+.ml-6 {
+    margin: 0 auto;
+}
