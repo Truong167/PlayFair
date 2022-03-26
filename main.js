@@ -77,16 +77,42 @@ const result = $$('.result')
 
 const node = 'A'.charCodeAt();
 
-
 function encryptCeasar(plain, key){
     var cipher = ''
+    var c;
+    const k = Number.parseInt(key);
     plain = plain.toLocaleUpperCase();
     for(var i = 0; i < plain.length; i++){
         c = plain.charCodeAt(i);
+        console.log(c)
         if(c >= 65 && c <= 90){
-            c = (c - node + key) % 26 + node;
+            c = (c - node + k) % 26 + node;
+            console.log('c:' ,c)
         }
         cipher += String.fromCharCode(c);
+    }
+    return cipher;
+}
+
+function decryptCeasar(plain, key){
+    var cipher = '';
+    plain = plain .toLocaleUpperCase();
+    const k = Number.parseInt(key);
+    for(var i = 0; i < plain.length; i++){
+        c = plain.charCodeAt(i);
+        console.log(c)
+        if(c >= 65 && c <= 90){
+            if(c - node - k < 0){
+                c = c - node - k + 'Z'.charCodeAt() + 1;
+                console.log('d: ', c)
+            }
+            else {
+                c = (c - node - k) % 26 + node;
+                console.log('c: ' ,c)
+            }
+            
+        }
+        cipher += String.fromCharCode(c)
     }
     return cipher;
 }
@@ -119,6 +145,13 @@ $(function(){
             const m = $$('.mess').value;
             if(k && m){
                 result.value = encryptCeasar(m, k);
+            }
+        })
+        $('.decode').click(function(){
+            const k = $$('.key').value;
+            const m = $$('.mess').value;
+            if(k && m){
+                result.value = decryptCeasar(m, k);
             }
         })
     }
