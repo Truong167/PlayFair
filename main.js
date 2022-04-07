@@ -84,10 +84,10 @@ function encryptCeasar(plain, key){
     plain = plain.toLocaleUpperCase();
     for(var i = 0; i < plain.length; i++){
         c = plain.charCodeAt(i);
-        console.log(c)
+        
         if(c >= 65 && c <= 90){
             c = (c - node + k) % 26 + node;
-            console.log('c:' ,c)
+            
         }
         cipher += String.fromCharCode(c);
     }
@@ -100,15 +100,14 @@ function decryptCeasar(plain, key){
     const k = Number.parseInt(key);
     for(var i = 0; i < plain.length; i++){
         c = plain.charCodeAt(i);
-        console.log(c)
         if(c >= 65 && c <= 90){
             if(c - node - k < 0){
                 c = c - node - k + 'Z'.charCodeAt() + 1;
-                console.log('d: ', c)
+                
             }
             else {
                 c = (c - node - k) % 26 + node;
-                console.log('c: ' ,c)
+                
             }
             
         }
@@ -121,7 +120,7 @@ $(function(){
     $('form').submit(function (e) {
         e.preventDefault();
     });
-    if(window.location.pathname.includes('/PlayFair.html')){
+    if(window.location.pathname.includes('/index.html')){
          $('.encode').click(function(){
         const k = $$('.key').value;
         const m = $$('.mess').value;
